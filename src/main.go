@@ -6,9 +6,8 @@ import (
 
 	"github.com/hajimehoshi/ebiten/v2"
 	"github.com/yohamta/furex/v2"
-	"https://github.com/Asabs18/furexSpike/tree/master/src/sprites"
-	"https://github.com/Asabs18/furexSpike/tree/master/src/text"
-	"https://github.com/Asabs18/furexSpike/tree/master/src/widgets"
+
+	"github.com/Asabs18/furexSpike/src/widgets"
 
 	_ "embed"
 )

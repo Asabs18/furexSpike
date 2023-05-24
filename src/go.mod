@@ -1,14 +1,15 @@
-module go.mod
+module github.com/Asabs18/furexSpike/src
 
 go 1.19
 
 require (
 	github.com/hajimehoshi/ebiten/v2 v2.5.4
 	github.com/tinne26/etxt v0.0.8
-	github.com/yohamta/furex/examples/game v0.0.0-20230505155930-170e42aef019
 	github.com/yohamta/furex/v2 v2.4.2
 	github.com/yohamta/ganim8/v2 v2.1.27
 )
+
+require github.com/yohamta/furex/examples/game v0.0.0-20230505155930-170e42aef019
 
 require (
 	github.com/PuerkitoBio/goquery v1.8.1 // indirect

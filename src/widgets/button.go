@@ -4,11 +4,11 @@ import (
 	"image"
 	"image/color"
 
+	"github.com/Asabs18/furexSpike/src/sprites"
+	"github.com/Asabs18/furexSpike/src/text"
+	"github.com/Asabs18/furexSpike/src/functions"
 	"github.com/hajimehoshi/ebiten/v2"
 	"github.com/tinne26/etxt"
-	"github.com/yohamta/furex/examples/game/sprites"
-	"https://github.com/Asabs18/furexSpike/tree/master/src/functions"
-	"github.com/yohamta/furex/examples/game/text"
 	"github.com/yohamta/furex/v2"
 	"github.com/yohamta/ganim8/v2"
 )
