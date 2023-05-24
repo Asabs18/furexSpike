@@ -6,7 +6,6 @@ import (
 
 	"github.com/Asabs18/furexSpike/src/sprites"
 	"github.com/Asabs18/furexSpike/src/text"
-	"github.com/Asabs18/furexSpike/src/functions"
 	"github.com/hajimehoshi/ebiten/v2"
 	"github.com/tinne26/etxt"
 	"github.com/yohamta/furex/v2"
@@ -19,9 +18,6 @@ type Button struct {
 
 	mouseover bool
 	pressed   bool
-
-	width  int
-	height int
 }
 
 var (
@@ -49,20 +45,16 @@ func (b *Button) Draw(screen *ebiten.Image, frame image.Rectangle, view *furex.V
 	sprite := view.Attrs["sprite"]
 	spritePressed := view.Attrs["sprite_pressed"]
 
-	if First(sprites.Get(sprite).Size()) != First(sprites.Get(spritePressed).Size()) || Second(sprites.Get(sprite).Size()) != Second(sprites.Get(spritePressed).Size()) {
-		panic("sprite size mismatch")
-	}
+	spriteWidth, spriteHeight := sprites.Get(sprite).Size()
+	spriteOpts := ganim8.DrawOpts(x, y, 0, float64(view.Width/spriteWidth), float64(view.Height/spriteHeight), .5, .5)
 
-	butWidth, butHeight := sprites.Get(sprite).Size()
-
-	opts := ganim8.DrawOpts(x, y, 0, 1, 1, .5, .5)
 	if b.mouseover {
-		opts.ColorM.Scale(1.1, 1.1, 1.1, 1)
+		spriteOpts.ColorM.Scale(1.1, 1.1, 1.1, 1) //TODO: change color package
 	}
 	if b.pressed && spritePressed != "" {
-		ganim8.DrawSpriteWithOpts(screen, sprites.Get(spritePressed), 0, opts, nil)
+		ganim8.DrawSpriteWithOpts(screen, sprites.Get(spritePressed), 0, spriteOpts, nil)
 	} else if sprite != "" {
-		ganim8.DrawSpriteWithOpts(screen, sprites.Get(sprite), 0, opts, nil)
+		ganim8.DrawSpriteWithOpts(screen, sprites.Get(sprite), 0, spriteOpts, nil)
 	}
 
 	text.R.SetAlign(etxt.YCenter, etxt.XCenter)

@@ -3,8 +3,8 @@ package widgets
 import (
 	"image"
 
+	"github.com/Asabs18/furexSpike/src/sprites"
 	"github.com/hajimehoshi/ebiten/v2"
-	"github.com/yohamta/furex/examples/game/sprites"
 	"github.com/yohamta/furex/v2"
 	"github.com/yohamta/ganim8/v2"
 )
