@@ -1,4 +1,4 @@
-package assets
+package functions
 
 func First(returnVal int, _ int) int {
 	return returnVal
