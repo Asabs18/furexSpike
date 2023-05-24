@@ -3,17 +3,9 @@
 <head>
     <style>
         .game-ui {
-            flex-direction: column;
-            justify-content: space-between;
-            align-items: stretch;
-            align-content: stretch;
-        }
-
-        .bottom-buttons {
-            height: 140px;
-            width: 480px;
-            position: absolute;
-            right: 240px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .bottom-button {
@@ -29,11 +21,7 @@
 
 <body>
     <div class="game-ui">
-        <div class="bottom-buttons">
-            <bottom-button class="bottom-button" sprite="buttonSquare_brown.png" sprite_pressed="buttonSquare_brown_pressed.png">Button 1</bottom-button>
-            <bottom-button class="bottom-button" sprite="buttonSquare_brown.png" sprite_pressed="buttonSquare_brown_pressed.png">Button 2</bottom-button>
-            <bottom-button class="bottom-button" sprite="buttonSquare_brown.png" sprite_pressed="buttonSquare_brown_pressed.png">Button 3</bottom-button>
-        </div>
+        <bottom-button class="bottom-button" sprite="buttonSquare_brown.png" sprite_pressed="buttonSquare_brown_pressed.png">Button</bottom-button>
     </div>
 </body>
 
