@@ -5,13 +5,10 @@ import (
 	"sync"
 
 	"github.com/hajimehoshi/ebiten/v2"
-	//"github.com/yohamta/furex/examples/game/sprites"
-	//"github.com/yohamta/furex/examples/game/text"
-
-	
-
-	"github.com/yohamta/furex/examples/game/widgets"
 	"github.com/yohamta/furex/v2"
+	"https://github.com/Asabs18/furexSpike/tree/master/src/sprites"
+	"https://github.com/Asabs18/furexSpike/tree/master/src/text"
+	"https://github.com/Asabs18/furexSpike/tree/master/src/widgets"
 
 	_ "embed"
 )

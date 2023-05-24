@@ -4,8 +4,10 @@ go 1.19
 
 require (
 	github.com/hajimehoshi/ebiten/v2 v2.5.4
+	github.com/tinne26/etxt v0.0.8
 	github.com/yohamta/furex/examples/game v0.0.0-20230505155930-170e42aef019
 	github.com/yohamta/furex/v2 v2.4.2
+	github.com/yohamta/ganim8/v2 v2.1.27
 )
 
 require (
@@ -15,10 +17,8 @@ require (
 	github.com/go-gl/glfw/v3.3/glfw v0.0.0-20221017161538-93cebf72946b // indirect
 	github.com/gorilla/css v1.0.0 // indirect
 	github.com/jezek/xgb v1.1.0 // indirect
-	github.com/tinne26/etxt v0.0.8 // indirect
 	github.com/vanng822/css v1.0.1 // indirect
 	github.com/vanng822/go-premailer v1.20.2 // indirect
-	github.com/yohamta/ganim8/v2 v2.1.27 // indirect
 	golang.org/x/exp v0.0.0-20221126150942-6ab00d035af9 // indirect
 	golang.org/x/exp/shiny v0.0.0-20221126150942-6ab00d035af9 // indirect
 	golang.org/x/image v0.6.0 // indirect

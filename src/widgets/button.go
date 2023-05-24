@@ -7,7 +7,7 @@ import (
 	"github.com/hajimehoshi/ebiten/v2"
 	"github.com/tinne26/etxt"
 	"github.com/yohamta/furex/examples/game/sprites"
-	"github.com/yohamta/furex/examples/game/assets/functions"
+	"https://github.com/Asabs18/furexSpike/tree/master/src/functions"
 	"github.com/yohamta/furex/examples/game/text"
 	"github.com/yohamta/furex/v2"
 	"github.com/yohamta/ganim8/v2"
