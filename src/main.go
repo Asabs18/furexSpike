@@ -73,8 +73,6 @@ func (g *Game) setupUI() {
 		Components: furex.ComponentsMap{
 			"bottom-button": func() *furex.View {
 				return &furex.View{
-					Width:  100,
-					Height: 50,
 					Handler: &widgets.Button{
 						Color:   color.RGBA{0, 0, 0, 255},
 						OnClick: func() { println("button clicked") },

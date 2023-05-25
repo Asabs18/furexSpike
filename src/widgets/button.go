@@ -46,7 +46,10 @@ func (b *Button) Draw(screen *ebiten.Image, frame image.Rectangle, view *furex.V
 		(float64(view.Height)*PRESSED_BUTTON_SCALAR)/float64(spriteHeight), .5, .5)
 
 	if b.mouseover {
-		spriteOpts.ColorM.Scale(1.1, 1.1, 1.1, 1) //TODO: change color package
+		//Scale spriteOpts.ColorM by 10% to make the button brighter using "github.com/hajimehoshi/ebiten/v2/colorm"
+		//spriteOpts.ColorM = colorm.ScaleRGB(spriteOpts.ColorM, colorm.Scale(1.1, 1.1, 1.1, 1))
+		//TODO: Fix this
+		spriteOpts.ColorM.Scale(1.1, 1.1, 1.1, 1)
 	}
 	if b.pressed && sprite != "" {
 		ganim8.DrawSpriteWithOpts(screen, sprites.Get(sprite), 0, spritePressedOpts, nil)
