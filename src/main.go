@@ -45,34 +45,16 @@ func (g *Game) Layout(outsideWidth, outsideHeight int) (int, int) {
 func NewGame() (*Game, error) {
 	text.LoadFonts()
 	sprites.LoadSprites(
-		"assets/images/uipack_rpg_sheet.xml",
-		"assets/images/uipack_rpg_sheet.png",
+		"assets/images/cursor.xml",
+		"assets/images/cursor.png",
 		sprites.LoadOpts{
-			PanelOpts: map[string]sprites.PanelOpts{
-				"panelInset_beige.png": {
-					Border: 32,
-					Center: 36,
-				},
-				"panel_brown.png": {
-					Border: 32,
-					Center: 36,
-				},
-			},
+			PanelOpts: map[string]sprites.PanelOpts{},
 		})
 	sprites.LoadSprites(
-		"assets/images/uipackSpace_sheet.xml",
-		"assets/images/uipackSpace_sheet.png",
+		"assets/images/blankButtonColors.xml",
+		"assets/images/blankButtonColors.png",
 		sprites.LoadOpts{
-			PanelOpts: map[string]sprites.PanelOpts{
-				"glassPanel_corners.png": {
-					Border: 40,
-					Center: 20,
-				},
-				"glassPanel_projection.png": {
-					Border: 20,
-					Center: 10,
-				},
-			},
+			PanelOpts: map[string]sprites.PanelOpts{},
 		})
 	game := &Game{}
 	return game, nil
@@ -92,6 +74,8 @@ func (g *Game) setupUI() {
 		Components: furex.ComponentsMap{
 			"bottom-button": func() *furex.View {
 				return &furex.View{
+					Width:  100,
+					Height: 50,
 					Handler: &widgets.Button{
 						Color:   color.RGBA{210, 178, 144, 255},
 						OnClick: func() { println("button clicked") },

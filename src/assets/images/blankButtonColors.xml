@@ -1,0 +1,14 @@
+<TextureAtlas imagePath="sheet.png">
+	<SubTexture name="rectButtonPurple.png" x="771" y="0" width="1187" height="275"/>
+	<SubTexture name="rectButtonRed.png" x="771" y="316" width="1187" height="275"/>
+	<SubTexture name="rectButtonGreen.png" x="771" y="633" width="1187" height="275"/>
+	<SubTexture name="rectButtonBlue.png" x="771" y="947" width="1187" height="275"/>
+	<SubTexture name="rectButtonYellow.png" x="771" y="1264" width="1187" height="275"/>
+	<SubTexture name="rectButtonOrange.png" x="771" y="1578" width="1187" height="275"/>
+    <SubTexture name="circleButtonPurple.png" x="0" y="0" width="277" height="277"/>
+	<SubTexture name="circleButtonRed.png" x="0" y="316" width="277" height="277"/>
+	<SubTexture name="circleButtonGreen.png" x="0" y="633" width="277" height="277"/>
+	<SubTexture name="circleButtonBlue.png" x="0" y="947" width="277" height="277"/>
+	<SubTexture name="circleButtonYellow.png" x="0" y="1264" width="277" height="277"/>
+	<SubTexture name="circleButtonOrange.png" x="0" y="1578" width="277" height="277"/>
+</TextureAtlas>

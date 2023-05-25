@@ -1,0 +1,3 @@
+<TextureAtlas imagePath="sheet.png">
+	<SubTexture name="cursor.png" x="0" y="0" width="500" height="590"/>
+</TextureAtlas>

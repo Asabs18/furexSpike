@@ -7,9 +7,15 @@ import (
 	"github.com/Asabs18/furexSpike/src/sprites"
 	"github.com/Asabs18/furexSpike/src/text"
 	"github.com/hajimehoshi/ebiten/v2"
-	"github.com/tinne26/etxt"
 	"github.com/yohamta/furex/v2"
 	"github.com/yohamta/ganim8/v2"
+)
+
+// CONSTANTS
+const (
+	BUTTON_FONT_SCALAR    = 10
+	PRESSED_BUTTON_SCALAR = .95
+	FONT_OFFSET_SCALAR    = .01
 )
 
 type Button struct {
@@ -43,27 +49,28 @@ func (b *Button) Draw(screen *ebiten.Image, frame image.Rectangle, view *furex.V
 	x, y := float64(frame.Min.X+frame.Dx()/2), float64(frame.Min.Y+frame.Dy()/2)
 
 	sprite := view.Attrs["sprite"]
-	spritePressed := view.Attrs["sprite_pressed"]
 
 	spriteWidth, spriteHeight := sprites.Get(sprite).Size()
-	spriteOpts := ganim8.DrawOpts(x, y, 0, float64(view.Width/spriteWidth), float64(view.Height/spriteHeight), .5, .5)
+	//Scales unpressed sprite to the desired width divided by the current sprite width
+	spriteOpts := ganim8.DrawOpts(x, y, 0, (float64(view.Width) / float64(spriteWidth)), (float64(view.Height) / float64(spriteHeight)), .5, .5)
+	//Scales pressed sprite to the desired width divided by the current sprite width however the desired width is reduced by 5% of the unpressed size
+	spritePressedOpts := ganim8.DrawOpts(x, y, 0,
+		(float64(view.Width)*PRESSED_BUTTON_SCALAR)/float64(spriteWidth),
+		(float64(view.Height)*PRESSED_BUTTON_SCALAR)/float64(spriteHeight), .5, .5)
 
 	if b.mouseover {
 		spriteOpts.ColorM.Scale(1.1, 1.1, 1.1, 1) //TODO: change color package
 	}
-	if b.pressed && spritePressed != "" {
-		ganim8.DrawSpriteWithOpts(screen, sprites.Get(spritePressed), 0, spriteOpts, nil)
+	if b.pressed && sprite != "" {
+		ganim8.DrawSpriteWithOpts(screen, sprites.Get(sprite), 0, spritePressedOpts, nil)
+		text.R.SetSizePx(int(float64(view.Width)*PRESSED_BUTTON_SCALAR+float64(view.Height)*PRESSED_BUTTON_SCALAR) / BUTTON_FONT_SCALAR)
+		y += float64(view.Width) * .01
 	} else if sprite != "" {
 		ganim8.DrawSpriteWithOpts(screen, sprites.Get(sprite), 0, spriteOpts, nil)
+		text.R.SetSizePx((view.Width + view.Height) / BUTTON_FONT_SCALAR)
 	}
 
-	text.R.SetAlign(etxt.YCenter, etxt.XCenter)
 	text.R.SetTarget(screen)
-	if b.Color != nil {
-		text.R.SetColor(b.Color)
-	} else {
-		text.R.SetColor(color.White)
-	}
 	text.R.Draw(view.Text, int(x), int(y))
 }
 
