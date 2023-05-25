@@ -65,7 +65,6 @@ var mainHTML string
 
 func (g *Game) setupUI() {
 
-	// Setup the UI parsed from HTML.
 	g.gameUI = furex.Parse(mainHTML, &furex.ParseOptions{
 
 		Width:  g.screen.Width,
@@ -77,14 +76,13 @@ func (g *Game) setupUI() {
 					Width:  100,
 					Height: 50,
 					Handler: &widgets.Button{
-						Color:   color.RGBA{210, 178, 144, 255},
+						Color:   color.RGBA{0, 0, 0, 255},
 						OnClick: func() { println("button clicked") },
 					}}
 			},
 		},
 	})
 
-	// // panels that draws mouse cursor
 	g.gameUI.AddChild(
 		&furex.View{
 			Width:    g.screen.Width,

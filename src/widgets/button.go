@@ -32,19 +32,6 @@ var (
 	_ furex.MouseEnterLeaveHandler = (*Button)(nil)
 )
 
-func (b *Button) HandlePress(x, y int, t ebiten.TouchID) {
-	b.pressed = true
-}
-
-func (b *Button) HandleRelease(x, y int, isCancel bool) {
-	b.pressed = false
-	if !isCancel {
-		if b.OnClick != nil {
-			b.OnClick()
-		}
-	}
-}
-
 func (b *Button) Draw(screen *ebiten.Image, frame image.Rectangle, view *furex.View) {
 	x, y := float64(frame.Min.X+frame.Dx()/2), float64(frame.Min.Y+frame.Dy()/2)
 
@@ -71,7 +58,21 @@ func (b *Button) Draw(screen *ebiten.Image, frame image.Rectangle, view *furex.V
 	}
 
 	text.R.SetTarget(screen)
+	text.R.SetColor(b.Color)
 	text.R.Draw(view.Text, int(x), int(y))
+}
+
+func (b *Button) HandlePress(x, y int, t ebiten.TouchID) {
+	b.pressed = true
+}
+
+func (b *Button) HandleRelease(x, y int, isCancel bool) {
+	b.pressed = false
+	if !isCancel {
+		if b.OnClick != nil {
+			b.OnClick()
+		}
+	}
 }
 
 func (b *Button) HandleMouseEnter(x, y int) bool {

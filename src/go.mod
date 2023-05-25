@@ -3,7 +3,6 @@ module github.com/Asabs18/furexSpike/src
 go 1.19
 
 require (
-	github.com/hajimehoshi/ebiten v1.12.12
 	github.com/hajimehoshi/ebiten/v2 v2.5.4
 	github.com/tinne26/etxt v0.0.8
 	github.com/yohamta/furex/v2 v2.4.2
