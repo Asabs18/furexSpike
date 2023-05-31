@@ -78,7 +78,7 @@ func (g *Game) setupUI() {
 						OnClick: func() { println("button clicked") },
 					}}
 			},
-			"img": func() *furex.View {
+			"label": func() *furex.View {
 				return &furex.View{
 					Handler: &widgets.Label{
 						Color: color.RGBA{0, 0, 0, 255},
