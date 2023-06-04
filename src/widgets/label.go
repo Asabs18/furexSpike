@@ -16,10 +16,10 @@ type Label struct {
 }
 
 var (
-	_ furex.DrawHandler = (*Mouse)(nil)
+	_ furex.Drawer = (*Label)(nil)
 )
 
-func (l *Label) HandleDraw(screen *ebiten.Image, frame image.Rectangle, view *furex.View) {
+func (l *Label) Draw(screen *ebiten.Image, frame image.Rectangle, view *furex.View) {
 	x, y := float64(frame.Min.X+frame.Dx()/2), float64(frame.Min.Y+frame.Dy()/2)
 
 	sprite := view.Attrs["sprite"]
@@ -29,7 +29,7 @@ func (l *Label) HandleDraw(screen *ebiten.Image, frame image.Rectangle, view *fu
 	spriteOpts := ganim8.DrawOpts(x, y, 0, (float64(view.Width) / float64(spriteWidth)), (float64(view.Height) / float64(spriteHeight)), .5, .5)
 
 	ganim8.DrawSpriteWithOpts(screen, sprites.Get(sprite), 0, spriteOpts, nil)
-	text.R.SetSizePx((view.Width + view.Height) / BUTTON_FONT_SCALAR)
+	text.R.SetSizePx( /*(view.Width + view.Height) /*/ 30)
 	text.R.SetTarget(screen)
 	text.R.SetColor(l.Color)
 	text.R.Draw(view.Text, int(x), int(y))

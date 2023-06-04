@@ -56,6 +56,12 @@ func NewGame() (*Game, error) {
 		sprites.LoadOpts{
 			PanelOpts: map[string]sprites.PanelOpts{},
 		})
+	sprites.LoadSprites(
+		"assets/images/textbox.xml",
+		"assets/images/textbox.png",
+		sprites.LoadOpts{
+			PanelOpts: map[string]sprites.PanelOpts{},
+		})
 	game := &Game{}
 	return game, nil
 }
@@ -82,6 +88,13 @@ func (g *Game) setupUI() {
 				return &furex.View{
 					Handler: &widgets.Label{
 						Color: color.RGBA{0, 0, 0, 255},
+					}}
+			},
+			"input": func() *furex.View {
+				return &furex.View{
+					Handler: &widgets.Input{
+						type_: "radio",
+						id:    "test",
 					}}
 			},
 		},
