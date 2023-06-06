@@ -62,6 +62,12 @@ func NewGame() (*Game, error) {
 		sprites.LoadOpts{
 			PanelOpts: map[string]sprites.PanelOpts{},
 		})
+	sprites.LoadSprites(
+		"assets/images/checkbox.xml",
+		"assets/images/checkbox.png",
+		sprites.LoadOpts{
+			PanelOpts: map[string]sprites.PanelOpts{},
+		})
 	game := &Game{}
 	return game, nil
 }
@@ -90,13 +96,19 @@ func (g *Game) setupUI() {
 						Color: color.RGBA{0, 0, 0, 255},
 					}}
 			},
-			"input": func() *furex.View {
+			"checkbox": func() *furex.View {
 				return &furex.View{
-					Handler: &widgets.Input{
-						type_: "radio",
-						id:    "test",
+					Handler: &widgets.CheckBox{
+						Color:   color.RGBA{0, 0, 0, 255},
+						OnClick: func() { println("checkbox toggled") },
 					}}
 			},
+			// "MEcheckbox": func() *furex.View {
+			// 	return &furex.View{
+			// 		Handler: &widgets.CheckBox{
+			// 			Color: color.RGBA{0, 0, 0, 255},
+			// 		}}
+			// },
 		},
 	})
 

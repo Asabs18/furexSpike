@@ -22,7 +22,7 @@ var (
 func (l *Label) Draw(screen *ebiten.Image, frame image.Rectangle, view *furex.View) {
 	x, y := float64(frame.Min.X+frame.Dx()/2), float64(frame.Min.Y+frame.Dy()/2)
 
-	sprite := view.Attrs["sprite"]
+	sprite := "textbox.png"
 
 	spriteWidth, spriteHeight := sprites.Get(sprite).Size()
 

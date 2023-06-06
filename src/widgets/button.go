@@ -3,6 +3,7 @@ package widgets
 import (
 	"image"
 	"image/color"
+	"strings"
 
 	"github.com/Asabs18/furexSpike/src/sprites"
 	"github.com/Asabs18/furexSpike/src/text"
@@ -32,10 +33,30 @@ var (
 	_ furex.MouseEnterLeaveHandler = (*Button)(nil)
 )
 
+func (b *Button) getButtonSprite(color string, shape string) string {
+	sprite := "Cannot find sprite for that color."
+	if color == "purple" {
+		sprite = shape + "ButtonPurple.png"
+	} else if color == "red" {
+		sprite = shape + "ButtonRed.png"
+	} else if color == "green" {
+		sprite = shape + "ButtonGreen.png"
+	} else if color == "blue" {
+		sprite = shape + "ButtonBlue.png"
+	} else if color == "yellow" {
+		sprite = shape + "ButtonYellow.png"
+	} else if color == "orange" {
+		sprite = shape + "ButtonOrange.png"
+	}
+	return sprite
+}
+
 func (b *Button) Draw(screen *ebiten.Image, frame image.Rectangle, view *furex.View) {
 	x, y := float64(frame.Min.X+frame.Dx()/2), float64(frame.Min.Y+frame.Dy()/2)
 
-	sprite := view.Attrs["sprite"]
+	color := strings.ToLower(view.Attrs["color"])
+	shape := strings.ToLower(view.Attrs["shape"])
+	sprite := b.getButtonSprite(color, shape)
 
 	spriteWidth, spriteHeight := sprites.Get(sprite).Size()
 	//Scales unpressed sprite to the desired width divided by the current sprite width

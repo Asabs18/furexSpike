@@ -8,7 +8,7 @@
             justify-content: center;
         }
 
-        .buttons {
+        .elements {
             display: flex;
             flex-direction: row;
             align-items: center;
@@ -53,31 +53,39 @@
             height: 50px;
         }
 
+        .checkbox {
+            margin-top: 5px;
+            margin-bottom: 10px;
+            margin-left: 20px;
+            margin-right: 20px;
+            width: 50px;
+            height: 50px;
+        }
+
+        .MEcheckbox {
+            margin-top: 5px;
+            margin-bottom: 10px;
+            margin-left: 20px;
+            margin-right: 20px;
+            width: 50px;
+            height: 50px;
+        }
+
     </style>
 </head>
 
 <body>
     <div class="game-ui">
-        <div class="buttons">
-            <div class="column">
-                <button class="circleButton" sprite="circleButtonBlue.png"></button>
-                <button class="circleButton" sprite="circleButtonYellow.png"></button>
-                <button class="circleButton" sprite="circleButtonOrange.png"></button>
-            </div>
-            <div class="column">
-                <label class="label" sprite="textbox.png">Hello</label>
-                <button class="rectButton" sprite="rectButtonPurple.png">Purple</button>
-                <button class="rectButton" sprite="rectButtonRed.png">Red</button>
-                <button class="rectButton" sprite="rectButtonGreen.png">Green</button>
-                <button class="rectButton" sprite="rectButtonBlue.png">Blue</button>
-                <button class="rectButton" sprite="rectButtonYellow.png">Yellow</button>
-                <button class="rectButton" sprite="rectButtonOrange.png">Orange</button>
-            </div>
-            <div class="column">
-                <button class="circleButton" sprite="circleButtonPurple.png"></button>
-                <button class="circleButton" sprite="circleButtonRed.png"></button>
-                <button class="circleButton" sprite="circleButtonGreen.png"></button>
-            </div>
+        <div class="elements">
+            <button class="circleButton" shape="circle" color="blue"></button>
+            <label class="label">Hello</label>
+            <button class="rectButton" shape="rect" color="purple">Button</button>
+            <checkbox class="checkbox"></checkbox>
+            <!--<MEcheckbox class="MEcheckbox" orientation="vertical" id="testButtons">
+                <checkbox class="checkbox" for="testButtons"></checkbox>
+                <checkbox class="checkbox" for="testButtons"></checkbox>
+                <checkbox class="checkbox" for="testButtons"></checkbox>
+            </MEcheckbox>-->
         </div>
     </div>
 </body>
