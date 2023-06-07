@@ -11,22 +11,18 @@ import (
 	"github.com/yohamta/ganim8/v2"
 )
 
-// CONSTANTS
-const (
-	MECHECKBOX_FONT_SCALAR = 10
-)
-
 type MEcheckBox struct {
-	Color      color.Color
-	CheckBoxes []CheckBox
+	Color   color.Color
+	OnClick func()
 
 	mouseover bool
 	pressed   bool
 }
 
 var (
-	_ furex.ButtonHandler = (*Button)(nil)
-	_ furex.Drawer        = (*Button)(nil)
+	_ furex.ButtonHandler          = (*Button)(nil)
+	_ furex.Drawer                 = (*Button)(nil)
+	_ furex.MouseEnterLeaveHandler = (*Button)(nil)
 )
 
 func (m *MEcheckBox) Draw(screen *ebiten.Image, frame image.Rectangle, view *furex.View) {
@@ -41,7 +37,7 @@ func (m *MEcheckBox) Draw(screen *ebiten.Image, frame image.Rectangle, view *fur
 	spritePressedOpts := ganim8.DrawOpts(x, y, 0,
 		(float64(view.Width)*PRESSED_BUTTON_SCALAR)/float64(spriteWidth),
 		(float64(view.Height)*PRESSED_BUTTON_SCALAR)/float64(spriteHeight), .5, .5)
-	text.R.SetSizePx((view.Width + view.Height) / MECHECKBOX_FONT_SCALAR)
+	text.R.SetSizePx((view.Width + view.Height) / CHECKBOX_FONT_SCALAR)
 
 	if m.mouseover {
 		//Scale spriteOpts.ColorM by 10% to make the button brighter using "github.com/hajimehoshi/ebiten/v2/colorm"
@@ -71,5 +67,18 @@ func (m *MEcheckBox) HandlePress(x, y int, t ebiten.TouchID) {
 }
 
 func (m *MEcheckBox) HandleRelease(x, y int, isCancel bool) {
+	if !isCancel {
+		if m.OnClick != nil {
+			m.OnClick()
+		}
+	}
+}
 
+func (m *MEcheckBox) HandleMouseEnter(x, y int) bool {
+	m.mouseover = true
+	return true
+}
+
+func (m *MEcheckBox) HandleMouseLeave() {
+	m.mouseover = false
 }

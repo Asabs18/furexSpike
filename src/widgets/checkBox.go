@@ -72,7 +72,11 @@ func (c *CheckBox) HandlePress(x, y int, t ebiten.TouchID) {
 }
 
 func (c *CheckBox) HandleRelease(x, y int, isCancel bool) {
-
+	if !isCancel {
+		if c.OnClick != nil {
+			c.OnClick()
+		}
+	}
 }
 
 func (c *CheckBox) HandleMouseEnter(x, y int) bool {

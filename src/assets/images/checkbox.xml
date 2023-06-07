@@ -1,4 +1,4 @@
 <TextureAtlas imagePath="sheet.png">
-	<SubTexture name="unclickedCheckbox.png" x="15" y="15" width="66" height="66"/>
-	<SubTexture name="clickedCheckbox.png" x="15" y="111" width="66" height="66"/>
+	<SubTexture name="unclickedCheckbox.png" x="15" y="15" width="65" height="65"/>
+	<SubTexture name="clickedCheckbox.png" x="15" y="111" width="65" height="65"/>
 </TextureAtlas>

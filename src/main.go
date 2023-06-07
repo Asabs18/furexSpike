@@ -103,12 +103,18 @@ func (g *Game) setupUI() {
 						OnClick: func() { println("checkbox toggled") },
 					}}
 			},
-			// "MEcheckbox": func() *furex.View {
-			// 	return &furex.View{
-			// 		Handler: &widgets.CheckBox{
-			// 			Color: color.RGBA{0, 0, 0, 255},
-			// 		}}
-			// },
+			"radio": func() *furex.View {
+				return &furex.View{
+					Handler: &widgets.RadioButtons{
+						Color: color.RGBA{0, 0, 0, 255},
+					}}
+			},
+			"mecheckbox": func() *furex.View {
+				return &furex.View{
+					Handler: &widgets.RadioButtons{
+						Color: color.RGBA{0, 0, 0, 255},
+					}}
+			},
 		},
 	})
 
