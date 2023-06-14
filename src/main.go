@@ -100,7 +100,8 @@ func (g *Game) setupUI() {
 			"label": func() *furex.View {
 				return &furex.View{
 					Handler: &widgets.Label{
-						Color: color.RGBA{0, 0, 0, 255},
+						Color:    color.RGBA{0, 0, 0, 255},
+						FontSize: 18,
 					}}
 			},
 			"test-checkbox": func() *furex.View {
@@ -123,6 +124,14 @@ func (g *Game) setupUI() {
 					Handler: &widgets.CheckBox{
 						Color:   color.RGBA{0, 0, 0, 255},
 						OnClick: func() { println("test rb toggled") },
+					}}
+			},
+			"textbox": func() *furex.View {
+				return &furex.View{
+					Handler: &widgets.TextBox{
+						Color:    color.RGBA{0, 0, 0, 255},
+						FontSize: 20,
+						Text:     "test",
 					}}
 			},
 		},
