@@ -29,7 +29,7 @@ func (l *Label) Draw(screen *ebiten.Image, frame image.Rectangle, view *furex.Vi
 	spriteOpts := ganim8.DrawOpts(x, y, 0, (float64(view.Width) / float64(spriteWidth)), (float64(view.Height) / float64(spriteHeight)), .5, .5)
 
 	ganim8.DrawSpriteWithOpts(screen, sprites.Get(sprite), 0, spriteOpts, nil)
-	text.R.SetSizePx( /*(view.Width + view.Height) /*/ 30)
+	text.R.SetSizePx(15)
 	text.R.SetTarget(screen)
 	text.R.SetColor(l.Color)
 	text.R.Draw(view.Text, int(x), int(y))

@@ -83,11 +83,18 @@ func (g *Game) setupUI() {
 		Height: g.screen.Height,
 
 		Components: furex.ComponentsMap{
-			"button": func() *furex.View {
+			"blank-button": func() *furex.View {
 				return &furex.View{
 					Handler: &widgets.Button{
 						Color:   color.RGBA{0, 0, 0, 255},
-						OnClick: func() { println("button clicked") },
+						OnClick: func() { println("blank button clicked") },
+					}}
+			},
+			"start-button": func() *furex.View {
+				return &furex.View{
+					Handler: &widgets.Button{
+						Color:   color.RGBA{0, 0, 0, 255},
+						OnClick: func() { println("rect button clicked") },
 					}}
 			},
 			"label": func() *furex.View {
@@ -96,23 +103,26 @@ func (g *Game) setupUI() {
 						Color: color.RGBA{0, 0, 0, 255},
 					}}
 			},
-			"checkbox": func() *furex.View {
+			"test-checkbox": func() *furex.View {
 				return &furex.View{
 					Handler: &widgets.CheckBox{
 						Color:   color.RGBA{0, 0, 0, 255},
-						OnClick: func() { println("checkbox toggled") },
+						OnClick: func() { println("test checkbox toggled") },
 					}}
 			},
-			"radio": func() *furex.View {
+			"test-container": func() *furex.View {
 				return &furex.View{
-					Handler: &widgets.RadioButtons{
-						Color: color.RGBA{0, 0, 0, 255},
+					Handler: &widgets.RadioButtonContainer{
+						Buttons:     []string{"testRB1", "testRB2", "testRB3"},
+						CurrState:   []bool{false, false, false},
+						CurrPressed: -1,
 					}}
 			},
-			"mecheckbox": func() *furex.View {
+			"test-rb": func() *furex.View {
 				return &furex.View{
-					Handler: &widgets.RadioButtons{
-						Color: color.RGBA{0, 0, 0, 255},
+					Handler: &widgets.CheckBox{
+						Color:   color.RGBA{0, 0, 0, 255},
+						OnClick: func() { println("test rb toggled") },
 					}}
 			},
 		},
@@ -129,6 +139,29 @@ func (g *Game) setupUI() {
 		},
 	)
 }
+
+// "radio": func() *furex.View {
+// 	return furex.Parse(mainHTML, &furex.ParseOptions{
+// 		Width:  g.screen.Width,
+// 		Height: g.screen.Height,
+
+// 		Components: furex.ComponentsMap{
+// 			"mecheckbox": func() *furex.View {
+// 				return &furex.View{
+// 					Handler: &widgets.MEcheckBox{
+// 						Color:   color.RGBA{0, 0, 0, 255},
+// 						OnClick: func() { println("checkbox toggled") },
+// 					}}
+// 			},
+// 		},
+// 	})
+// },
+
+// <radio class="radioButtons" orientation="vertical" id="testButtons">
+// 	   <mecheckbox class="MEcheckbox" for="testButtons"></mecheckbox>
+//     <mecheckbox class="MEcheckbox" for="testButtons"></mecheckbox>
+//     <mecheckbox class="MEcheckbox" for="testButtons"></mecheckbox>
+// </radio>
 
 func main() {
 	ebiten.SetWindowSize(1000, 750)

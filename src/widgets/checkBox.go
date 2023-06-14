@@ -25,9 +25,9 @@ type CheckBox struct {
 }
 
 var (
-	_ furex.ButtonHandler          = (*Button)(nil)
-	_ furex.Drawer                 = (*Button)(nil)
-	_ furex.MouseEnterLeaveHandler = (*Button)(nil)
+	_ furex.ButtonHandler          = (*CheckBox)(nil)
+	_ furex.Drawer                 = (*CheckBox)(nil)
+	_ furex.MouseEnterLeaveHandler = (*CheckBox)(nil)
 )
 
 func (c *CheckBox) Draw(screen *ebiten.Image, frame image.Rectangle, view *furex.View) {

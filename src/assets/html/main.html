@@ -17,15 +17,6 @@
             height: 100%;
         }
 
-        .column {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin-left: 20px;
-            margin-right: 20px;
-        }
-
         .rectButton {
             margin-top: 5px;
             margin-bottom: 10px;
@@ -45,12 +36,8 @@
         }
 
         .label {
-            margin-top: 5px;
-            margin-bottom: 10px;
-            margin-left: 20px;
-            margin-right: 20px;
-            width: 200px;
-            height: 50px;
+            width: 100px;
+            height: 25px;
         }
 
         .checkbox {
@@ -62,22 +49,25 @@
             height: 25px;
         }
 
-        .radioButtons {
-            margin-top: 5px;
-            margin-bottom: 10px;
-            margin-left: 20px;
-            margin-right: 20px;
-            width: 50px;
-            height: 50px;
-        }
-
-        .MEcheckbox {
-            margin-top: 5px;
-            margin-bottom: 10px;
-            margin-left: 20px;
-            margin-right: 20px;
+        .radioButton {
+            margin-right: 5px;
             width: 25px;
             height: 25px;
+        }
+
+        .testRadioButtons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .buttonLabel {
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
         }
 
     </style>
@@ -86,15 +76,24 @@
 <body>
     <div class="game-ui">
         <div class="elements">
-            <button class="circleButton" shape="circle" color="blue"></button>
-            <label class="label">Hello</label>
-            <button class="rectButton" shape="rect" color="purple">Button</button>
-            <checkbox class="checkbox"></checkbox>
-            <!--<radio class="radioButtons" orientation="vertical" id="testButtons">
-                <mecheckbox class="MEcheckbox" for="testButtons"></mecheckbox>
-                <mecheckbox class="MEcheckbox" for="testButtons"></mecheckbox>
-                <mecheckbox class="MEcheckbox" for="testButtons"></mecheckbox>
-            </radio>-->
+            <!-- <blank-button class="circleButton" shape="circle" color="blue"></blank-button>
+            <label class="label" id="test-label1">Hello</label>
+            <start-button class="rectButton" shape="rect" color="purple">Start</start-button>
+            <test-checkbox class="checkbox"></test-checkbox> -->
+            <test-container class="testRadioButtons">  
+                <div class="buttonLabel">
+                    <test-rb class="radioButton" id="testRB1" name="test-rb"></test-rb>
+                    <label class="label" id="test-label1">Button 1</label>
+                </div>
+                <div class="buttonLabel">
+                    <test-rb class="radioButton" id="testRB2" name="test-rb"></test-rb>
+                    <label class="label" id="test-label2">Button 2</label>
+                </div>
+                <div class="buttonLabel">
+                    <test-rb class="radioButton" id="testRB3" name="test-rb"></test-rb>
+                    <label class="label" id="test-label3">Button 3</label>
+                </div>
+            </test-container>
         </div>
     </div>
 </body>
