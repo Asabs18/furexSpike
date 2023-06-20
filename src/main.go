@@ -83,11 +83,11 @@ func (g *Game) setupUI() {
 		Height: g.screen.Height,
 
 		Components: furex.ComponentsMap{
-			"blank-button": func() *furex.View {
+			"circle-button": func() *furex.View {
 				return &furex.View{
 					Handler: &widgets.Button{
 						Color:   color.RGBA{0, 0, 0, 255},
-						OnClick: func() { println("blank button clicked") },
+						OnClick: func() { println("circle button clicked") },
 					}}
 			},
 			"start-button": func() *furex.View {
