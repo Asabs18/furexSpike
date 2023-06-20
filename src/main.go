@@ -114,8 +114,8 @@ func (g *Game) setupUI() {
 			"test-container": func() *furex.View {
 				return &furex.View{
 					Handler: &widgets.RadioButtonContainer{
-						Buttons:     []string{"testRB1", "testRB2", "testRB3"},
-						CurrState:   []bool{false, false, false},
+						Buttons:     []string{"testRB1", "testRB2", "testRB3", "testRB4"},
+						CurrState:   []bool{false, false, false, false},
 						CurrPressed: -1,
 					}}
 			},
@@ -132,6 +132,7 @@ func (g *Game) setupUI() {
 						Color:    color.RGBA{0, 0, 0, 255},
 						FontSize: 20,
 						Text:     "test",
+						Counter:  0,
 					}}
 			},
 		},
